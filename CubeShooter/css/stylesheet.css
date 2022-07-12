@@ -1,0 +1,17 @@
+.title-card
+{
+	font-size:60px;
+	color: blue;
+	text-align: center;
+	padding:10px;
+	background-color: grey;
+	border-bottom:2px solid black;
+}
+
+#window
+{
+	border: 2px solid blue;
+	margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
