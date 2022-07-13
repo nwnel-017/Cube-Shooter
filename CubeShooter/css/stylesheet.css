@@ -1,4 +1,4 @@
-.title-card
+.box
 {
 	font-size:60px;
 	color: blue;
@@ -10,8 +10,18 @@
 
 #window
 {
-	border: 2px solid blue;
+	border: 2px;
 	margin-right: auto;
     margin-left: auto;
     display: block;
+}
+
+.box
+{
+	height: 100px;
+}
+
+.title-text
+{
+	align-content: middle;
 }
