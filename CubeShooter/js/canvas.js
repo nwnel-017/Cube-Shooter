@@ -1,4 +1,3 @@
-
 var gameScreen = document.getElementById("window");
 var c = gameScreen.getContext("2d");
 
@@ -78,7 +77,7 @@ function incrementScore(){
 }
 
 function spawnEnemies(){
-		var enemyY = Math.random() * h;
+		var enemyY = Math.random() * 671;
 		var velocity = Math.floor(Math.random()*10) + 5;
 		var badGuy = new Enemy(enemyX, enemyY, velocity);
 		enemies.push(badGuy);
@@ -121,14 +120,14 @@ function animate(){
 			playerScore++;
 			titleText.innerHTML = "Score: " + playerScore;
 		}
-		projectiles.forEach((projectile, projectileIndex, projectiles) => { //this is going really wrong somewhere
+		projectiles.forEach((projectile, projectileIndex, projectiles) => { 
 			var distanceX = Math.abs(projectile.x - enemy.x - enemyWidth/2);
 			var distanceY = Math.abs(projectile.y - enemy.y - enemyHeight/2);
 			if(distanceX <= (enemyWidth/2) + 10 && distanceY <= (enemyHeight/2) + 10){
 				//they are colliding
 				projectiles.splice(projectileIndex, 1);
 				enemies.splice(enemyIndex, 1);
-				playerScore++;
+				incrementScore();
 			}
 		})
 	})
@@ -140,6 +139,13 @@ function animate(){
 		y = event.clientY;
 		x-= gameScreen.offsetLeft + (heroWidth/2);
 		y-= gameScreen.offsetTop + (heroHeight/2);
+		if(y < 0){
+			y = 0;
+		}
+		if(y > 671){
+			y = 671;
+		}
+		console.log(x + ", " + y);
 		hero.move(x, y);
 	}
 
@@ -158,9 +164,10 @@ function animate(){
 		}
 		draw(){
 			c.fillStyle = 'rgba(255, 0, 0, 0.5)';
+			//c.fillStyle = "#228B22";
 			c.fillRect(this.x, this.y, enemyWidth, enemyHeight);
 		}
-		move(){ //for whatever reason doesn't clear the full enemy height
+		move(){ 
 			c.fillStyle = 'rgba(255, 0, 0, 0.5)';
 			this.x -= this.velocity;
 		}
@@ -200,13 +207,6 @@ function animate(){
 			this.x += this.velocity;
 		}
 	}
-	class User {
-		constructor(username, score){
-			this.username = username;
-			this.lastScore = score;
-			if(this.highScore < score){
-				this.highScore = score;
-			}
-		}
-	}
+
+
 
