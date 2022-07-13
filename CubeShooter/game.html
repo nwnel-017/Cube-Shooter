@@ -4,13 +4,14 @@
 <head>
 	<title>Game</title>
 	<link rel="stylesheet" href="css/stylesheet.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 
 
 <body>
-	<div class="title-card">
+	<div class="box">
 		<div id='title-text'>Press button to play</div>
-		<button id='gamebutton' onclick='startGame()'>Start Game</button>
+		<button class="button is-info is-rounded" id='gamebutton' onclick='startGame()'>Start Game</button>
 	</div>
 	<canvas id="window"></canvas>
 
